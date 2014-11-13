@@ -1,6 +1,6 @@
 {
   "name": "vinyl-paths",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get the file paths in a vinyl stream",
   "license": "MIT",
   "repository": "sindresorhus/vinyl-paths",
