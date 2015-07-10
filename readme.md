@@ -52,6 +52,11 @@ The optionally supplied callback will get a file path for every file and is expe
 #### callback(path, cb)
 
 
+## Related
+
+- [gulp-revert-path](https://github.com/sindresorhus/gulp-revert-path) - Revert the previous `file.path` change
+
+
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
