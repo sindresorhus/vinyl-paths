@@ -6,7 +6,7 @@ module.exports = function (userCb) {
 		this.paths.push(file.path);
 
 		if (userCb) {
-			userCb(file.path, function () {
+			userCb(file.path).then(function () {
 				cb(null, file);
 			});
 		} else {
