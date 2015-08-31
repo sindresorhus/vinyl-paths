@@ -7,13 +7,13 @@
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "url": "sindresorhus.com"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && node test.js"
+    "test": "xo && ava"
   },
   "files": [
     "index.js"
@@ -30,12 +30,12 @@
     "stream"
   ],
   "dependencies": {
-    "through2": "^0.6.3"
+    "through2": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "0.1.0",
+    "ava": "*",
     "gulp-util": "^3.0.1",
     "pinkie-promise": "^1.0.0",
-    "xo": "^0.7.1"
+    "xo": "*"
   }
 }

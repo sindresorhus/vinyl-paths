@@ -9,7 +9,7 @@ Simply pass a promise-returning function such as `del` and `vinyl-paths` will pr
 
 ## Install
 
-```sh
+```
 $ npm install --save vinyl-paths
 ```
 
@@ -25,12 +25,12 @@ var vinylPaths = require('vinyl-paths');
 
 // log file paths in the stream
 gulp.task('log', function () {
-    return gulp.src('app/*')
-        .pipe(stripDebug())
-        .pipe(vinylPaths(function (paths) {
-            console.log('Paths:', paths);
-            return Promise.resolve();
-        ));
+	return gulp.src('app/*')
+		.pipe(stripDebug())
+		.pipe(vinylPaths(function (paths) {
+			console.log('Paths:', paths);
+			return Promise.resolve();
+		}));
 });
 
 // delete files in the stream
@@ -55,7 +55,7 @@ gulp.task('delete2', function () {
 });
 ```
 
-*You should only use a promise-returning node module like this if you're already using other plugins in the pipeline, otherwise just use the module directly as `gulp.src` is costly. Remember that gulp tasks can return Promises as well as streams!*
+*You should only use a vanilla node module like this if you're already using other plugins in the pipeline, otherwise just use the module directly as `gulp.src` is costly. Remember that gulp tasks can return Promises as well as streams!*
 
 
 ## API
@@ -65,8 +65,6 @@ gulp.task('delete2', function () {
 The optionally supplied callback will get a file path for every file and is expected to return a Promise. An array of the file paths so far is available as a `paths` property on the stream.
 
 #### callback(path)
-
-If supplied, the callback should return a Promise.
 
 
 ## Related
