@@ -8,7 +8,7 @@ module.exports = function (userCb) {
 		if (userCb) {
 			userCb(file.path).then(function () {
 				cb(null, file);
-			});
+			}).catch(cb);
 		} else {
 			cb(null, file);
 		}
