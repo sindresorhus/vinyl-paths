@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "xo && node test.js"
   },
   "files": [
     "index.js"
@@ -35,6 +35,7 @@
   "devDependencies": {
     "ava": "0.0.4",
     "gulp-util": "^3.0.1",
-    "pinkie-promise": "^1.0.0"
+    "pinkie-promise": "^1.0.0",
+    "xo": "^0.7.1"
   }
 }
