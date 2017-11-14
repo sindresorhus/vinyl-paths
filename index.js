@@ -1,8 +1,9 @@
 'use strict';
 var through = require('through2');
 
-module.exports = function (userCb) {
-	var stream = through.obj(function (file, enc, cb) {
+module.exports = function (userCb, options) {
+	options = options || {};
+	var stream = through.obj(options, function (file, enc, cb) {
 		this.paths.push(file.path);
 
 		if (userCb) {
