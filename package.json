@@ -1,41 +1,40 @@
 {
-  "name": "vinyl-paths",
-  "version": "2.1.0",
-  "description": "Get the file paths in a vinyl stream",
-  "license": "MIT",
-  "repository": "sindresorhus/vinyl-paths",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "gulpplugin",
-    "vinyl",
-    "gulp",
-    "paths",
-    "path",
-    "file",
-    "tap",
-    "through",
-    "stream"
-  ],
-  "dependencies": {
-    "through2": "^2.0.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "gulp-util": "^3.0.1",
-    "pinkie-promise": "^2.0.0",
-    "xo": "*"
-  }
+	"name": "vinyl-paths",
+	"version": "2.1.0",
+	"description": "Get the file paths in a `vinyl` stream",
+	"license": "MIT",
+	"repository": "sindresorhus/vinyl-paths",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"gulpplugin",
+		"vinyl",
+		"gulp",
+		"paths",
+		"path",
+		"file",
+		"tap",
+		"through",
+		"stream"
+	],
+	"dependencies": {
+		"through2": "^3.0.1"
+	},
+	"devDependencies": {
+		"ava": "^1.4.1",
+		"vinyl": "^2.2.0",
+		"xo": "^0.24.0"
+	}
 }

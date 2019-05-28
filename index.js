@@ -1,16 +1,20 @@
 'use strict';
-var through = require('through2');
+const through = require('through2');
 
-module.exports = function (userCb) {
-	var stream = through.obj(function (file, enc, cb) {
+module.exports = pathCallback => {
+	const stream = through.obj(function (file, encoding, callback) {
 		this.paths.push(file.path);
 
-		if (userCb) {
-			userCb(file.path).then(function () {
-				cb(null, file);
-			}).catch(cb);
+		if (pathCallback) {
+			(async () => {
+				try {
+					callback(null, await pathCallback(file.path));
+				} catch (error) {
+					callback(error);
+				}
+			})();
 		} else {
-			cb(null, file);
+			callback(null, file);
 		}
 	});
 
