@@ -9,10 +9,12 @@ module.exports = pathCallback => {
 			(async () => {
 				try {
 					await pathCallback(file.path);
-					callback(null, file);
 				} catch (error) {
 					callback(error);
+					return;
 				}
+
+				callback(null, file);
 			})();
 		} else {
 			callback(null, file);

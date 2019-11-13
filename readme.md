@@ -18,10 +18,10 @@ $ npm install vinyl-paths
 
 ```js
 // gulpfile.js
-var gulp = require('gulp');
-var stripDebug = require('gulp-strip-debug');
-var del = require('del');
-var vinylPaths = require('vinyl-paths');
+const gulp = require('gulp');
+const stripDebug = require('gulp-strip-debug');
+const del = require('del');
+const vinylPaths = require('vinyl-paths');
 
 // Log file paths in the stream
 gulp.task('log', =>
@@ -64,9 +64,9 @@ gulp.task('delete2', =>
 
 ## API
 
-### vinylPaths([callback])
+### vinylPaths(callback?)
 
-The optionally supplied callback will get a file path for every file and is expected to return a promise. An array of the file paths so far is available as a `paths` property on the stream.
+The optional callback will receive a file path for every file and is expected to return a promise. An array of the file paths so far is available as a `paths` property on the stream.
 
 #### callback(path)
 
