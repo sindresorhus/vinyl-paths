@@ -8,7 +8,8 @@ module.exports = pathCallback => {
 		if (pathCallback) {
 			(async () => {
 				try {
-					callback(null, await pathCallback(file.path));
+					await pathCallback(file.path);
+					callback(null, file);
 				} catch (error) {
 					callback(error);
 				}
