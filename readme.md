@@ -1,4 +1,4 @@
-# vinyl-paths [![Build Status](https://travis-ci.org/sindresorhus/vinyl-paths.svg?branch=master)](https://travis-ci.org/sindresorhus/vinyl-paths)
+# vinyl-paths
 
 > Get the file paths in a [`vinyl`](https://github.com/wearefractal/vinyl) stream
 
