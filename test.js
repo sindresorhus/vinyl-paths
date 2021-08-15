@@ -1,15 +1,14 @@
-'use strict';
-const test = require('ava');
-const Vinyl = require('vinyl');
-const vinylPaths = require('.');
+import test from 'ava';
+import Vinyl from 'vinyl';
+import vinylPaths from './index.js';
 
 test.cb('yields each path to the user callback', t => {
 	t.plan(4);
 
-	let i = 0;
+	let index = 0;
 
 	const stream = vinylPaths(async path => {
-		t.is(path, `fixture${++i}.js`);
+		t.is(path, `fixture${++index}.js`);
 		t.true(Array.isArray(stream.paths));
 	});
 

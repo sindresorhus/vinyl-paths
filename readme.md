@@ -4,8 +4,7 @@
 
 Useful when you need to use the file paths from a Gulp pipeline in an async Node.js package.
 
-Simply pass an async function such as `del` and this package will provide each path in the stream as the first argument.
-
+Simply pass an async function such as [`del`](https://github.com/sindresorhus/del) and this package will provide each path in the stream as the first argument.
 
 ## Install
 
@@ -13,35 +12,34 @@ Simply pass an async function such as `del` and this package will provide each p
 $ npm install vinyl-paths
 ```
 
-
 ## Usage
 
 ```js
 // gulpfile.js
-const gulp = require('gulp');
-const stripDebug = require('gulp-strip-debug');
-const del = require('del');
-const vinylPaths = require('vinyl-paths');
+import gulp from 'gulp';
+import stripDebug from 'gulp-strip-debug';
+import del from 'del';
+import vinylPaths from 'vinyl-paths';
 
 // Log file paths in the stream
-gulp.task('log', =>
-	gulp.src('app/*')
+export function log() {
+	return gulp.src('app/*')
 		.pipe(stripDebug())
 		.pipe(vinylPaths(async paths => {
 			console.log('Paths:', paths);
-		})
-);
+		});
+}
 
 // Delete files in the stream
-gulp.task('delete', =>
-	gulp.src('app/*')
+export function delete() {
+	return gulp.src('app/*')
 		.pipe(stripDebug())
-		.pipe(vinylPaths(del))
-);
+		.pipe(vinylPaths(del));
+)
 
 // Or if you need to use the paths after the pipeline
-gulp.task('delete2', =>
-	new Promise(function (resolve, reject) {
+export function delete2() {
+	return new Promise(function (resolve, reject) {
 		const vp = vinylPaths();
 
 		gulp.src('app/*')
@@ -55,12 +53,11 @@ gulp.task('delete2', =>
 					reject(error);
 				}
 			});
-	})
-);
+	});
+}
 ```
 
 *You should only use a vanilla Node.js package like this if you're already using other plugins in the pipeline, otherwise just use the module directly as `gulp.src` is costly. Remember that Gulp tasks can return promises as well as streams!*
-
 
 ## API
 
@@ -69,7 +66,6 @@ gulp.task('delete2', =>
 The optional callback will receive a file path for every file and is expected to return a promise. An array of the file paths so far is available as a `paths` property on the stream.
 
 #### callback(path)
-
 
 ## Related
 

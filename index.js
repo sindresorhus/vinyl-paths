@@ -1,7 +1,6 @@
-'use strict';
-const through = require('through2');
+import through from 'through2';
 
-module.exports = pathCallback => {
+export default function vinylPaths(pathCallback) {
 	const stream = through.obj(function (file, encoding, callback) {
 		this.paths.push(file.path);
 
@@ -24,4 +23,4 @@ module.exports = pathCallback => {
 	stream.paths = [];
 
 	return stream;
-};
+}

@@ -4,13 +4,16 @@
 	"description": "Get the file paths in a `vinyl` stream",
 	"license": "MIT",
 	"repository": "sindresorhus/vinyl-paths",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
+	"type": "module",
+	"exports": "./index.js",
 	"engines": {
-		"node": ">=8"
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -30,11 +33,11 @@
 		"stream"
 	],
 	"dependencies": {
-		"through2": "^3.0.1"
+		"through2": "^4.0.2"
 	},
 	"devDependencies": {
-		"ava": "^2.4.0",
-		"vinyl": "^2.2.0",
-		"xo": "^0.25.3"
+		"ava": "^3.15.0",
+		"vinyl": "^2.2.1",
+		"xo": "^0.44.0"
 	}
 }
