@@ -13,7 +13,7 @@
 	"type": "module",
 	"exports": "./index.js",
 	"engines": {
-		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+		"node": ">=14.16"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -33,10 +33,11 @@
 		"stream"
 	],
 	"dependencies": {
-		"through2": "^4.0.2"
+		"easy-transform-stream": "^1.0.0"
 	},
 	"devDependencies": {
 		"ava": "^3.15.0",
+		"p-event": "^5.0.1",
 		"vinyl": "^2.2.1",
 		"xo": "^0.44.0"
 	}

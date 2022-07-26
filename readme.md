@@ -1,6 +1,6 @@
 # vinyl-paths
 
-> Get the file paths in a [`vinyl`](https://github.com/wearefractal/vinyl) stream
+> Get the file paths in a [`vinyl`](https://github.com/gulpjs/vinyl) stream
 
 Useful when you need to use the file paths from a Gulp pipeline in an async Node.js package.
 
@@ -8,8 +8,8 @@ Simply pass an async function such as [`del`](https://github.com/sindresorhus/de
 
 ## Install
 
-```
-$ npm install vinyl-paths
+```sh
+npm install vinyl-paths
 ```
 
 ## Usage
@@ -35,11 +35,11 @@ export function delete() {
 	return gulp.src('app/*')
 		.pipe(stripDebug())
 		.pipe(vinylPaths(del));
-)
+}
 
 // Or if you need to use the paths after the pipeline
 export function delete2() {
-	return new Promise(function (resolve, reject) {
+	return new Promise((resolve, reject) => {
 		const vp = vinylPaths();
 
 		gulp.src('app/*')

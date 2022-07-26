@@ -1,9 +1,10 @@
 import test from 'ava';
 import Vinyl from 'vinyl';
+import {pEvent} from 'p-event';
 import vinylPaths from './index.js';
 
-test.cb('yields each path to the user callback', t => {
-	t.plan(4);
+test('yields each path to the user callback', async t => {
+	t.plan(5);
 
 	let index = 0;
 
@@ -12,26 +13,29 @@ test.cb('yields each path to the user callback', t => {
 		t.true(Array.isArray(stream.paths));
 	});
 
-	stream.on('finish', t.end);
+	const finishPromise = pEvent(stream, 'finish');
 
 	stream.write(new Vinyl({path: 'fixture1.js'}));
 	stream.write(new Vinyl({path: 'fixture2.js'}));
 	stream.end();
+
+	await finishPromise;
+
+	t.is(stream.paths.length, index);
 });
 
-test.cb('errors on the stream when the user callback returns a rejected promise', t => {
-	t.plan(1);
-
+test('errors on the stream when the user callback returns a rejected promise', async t => {
 	const stream = vinylPaths(async () => {
 		throw new Error('fixture');
 	});
 
-	stream.on('error', () => {
-		t.pass();
-		t.end();
-	});
+	const errorPromise = pEvent(stream, 'error');
 
 	stream.write(new Vinyl({path: 'fixture1.js'}));
 	stream.write(new Vinyl({path: 'fixture2.js'}));
 	stream.end();
+
+	await errorPromise;
+
+	t.pass();
 });
